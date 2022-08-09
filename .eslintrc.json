@@ -1,0 +1,11 @@
+{
+  "plugins": ["testing-library", "jest-dom", "sonarjs", "prettier"],
+  "extends": [
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react",
+    "react-app",
+    "react-app/jest",
+    "plugin:prettier/recommended"
+  ]
+}
+// npm i eslint-plugin-testing-library eslint-plugin-jest-dom eslint-plugin-prettier
