@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import ColorButton, { replaceCamelCaseWithSpaces } from "./ColorButton";
 
 test("btn has correct color when initialed", () => {
@@ -31,13 +30,13 @@ test("initial conditions", () => {
     name: "Change to Midnight Blue",
   });
 
-  expect(colorButton).toBeEnabled;
+  expect(colorButton).toBeEnabled();
   //check that the checkbox starts out unchecked
   const checkbox = screen.getByRole("checkbox");
   expect(checkbox).not.toBeChecked();
 });
 
-test("Checkbox disable button on first clicked & ColorButtonear in the second click", () => {
+test("Checkbox disable button on first clicked & ColorButton appear in the second click", () => {
   render(<ColorButton />);
   const checkbox = screen.getByRole("checkbox", { name: "Disable button" });
   const colorButton = screen.getByRole("button", {
@@ -51,7 +50,7 @@ test("Checkbox disable button on first clicked & ColorButtonear in the second cl
   expect(colorButton).toBeEnabled();
 });
 
-test("Disabled button has gray background and revert to MediumVioletRed ", () => {
+test("Disabled button has gray background and revert to MediumVioletRed", () => {
   render(<ColorButton />);
   const checkbox = screen.getByRole("checkbox", { name: "Disable button" });
   const colorButton = screen.getByRole("button", {
@@ -66,7 +65,7 @@ test("Disabled button has gray background and revert to MediumVioletRed ", () =>
   fireEvent.click(checkbox);
   expect(colorButton).toHaveStyle({ backgroundColor: "MediumVioletRed" });
 });
-test("Disabled button has gray background and revert to MidnightBlue ", () => {
+test("Disabled button has gray background and revert to MidnightBlue", () => {
   render(<ColorButton />);
   const checkbox = screen.getByRole("checkbox", { name: "Disable button" });
   const colorButton = screen.getByRole("button", {
